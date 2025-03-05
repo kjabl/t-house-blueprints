@@ -792,6 +792,19 @@ fields:
     default: !input subtitle
     selector:
       text:
+  field_icon_color:
+    name: "🎨 Icon Color"
+    description: "Custom icon color for this notification.  \n\n`🤖 Android Only`, `Optional`"
+    example: !input icon_color
+    default: !input icon_color
+    selector:
+      color_rgb:
+  filed_icon:
+    name: "🙂 Icon"
+    description: "Custom icon for this notification.  \n\n`🤖 Android Only`, `Optional`"
+    default: ""
+    selector:
+      icon:
   field_attachment_type:
     name: "📸 Attachment Type"
     description: "Override the Attachment Type of the notification."
@@ -934,9 +947,12 @@ sequence:
       script_run_timeout_actions: !input run_timeout_actions
       run_timeout_actions: "{{ iif(field_run_timeout_actions is defined, field_run_timeout_actions, script_run_timeout_actions) }}"
       car_ui: !input car_ui
-      icon: !input icon
-      enable_icon_color: !input enable_icon_color
-      icon_color_selector: !input icon_color
+      script_icon: !input icon
+      icon: "{{ iif(field_icon is defined, field_icon, script_icon) }}"
+      script_enable_icon_color: !input enable_icon_color
+      enable_icon_color: "{{ iif(field_icon_color is defined, true, script_enable_icon_color) }}"
+      script_icon_color_selector: !input icon_color
+      icon_color_selector: "{{ iif(field_icon_color is defined, field_icon_color, script_icon_color_selector) }}"
       icon_color_hex: '{{ "#{:02x}{:02x}{:02x}".format(icon_color_selector[0], icon_color_selector[1], icon_color_selector[2]) }}'
       swipe_away_as_timeout: !input swipe_away_as_timeout
       script_attachment_type: !input attachment_type
