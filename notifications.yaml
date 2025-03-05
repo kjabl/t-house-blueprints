@@ -795,8 +795,6 @@ fields:
   field_icon_color:
     name: "🎨 Icon Color"
     description: "Custom icon color for this notification.  \n\n`🤖 Android Only`, `Optional`"
-    example: !input icon_color
-    default: !input icon_color
     selector:
       color_rgb:
   filed_icon:
