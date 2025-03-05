@@ -1,11 +1,11 @@
 mode: restart
 blueprint:
-  name: 🔔 Notifications (Version 2.0.2 Beta - Multi-device)
+  name: 🔔 Notifications (Version 2.0.2 Beta - Multi-device) - by Kevin
   source_url: https://github.com/samuelthng/t-house-blueprints/blob/multidevice/notifications.yaml
   homeassistant:
     min_version: 2023.11.0
   domain: script
-  author: samuelthng/t-house-blueprints
+  author: samuelthng/t-house-blueprints forked by kjabl
   description: >-
     <div>
       <h2>🔔 Notifications</h2>
